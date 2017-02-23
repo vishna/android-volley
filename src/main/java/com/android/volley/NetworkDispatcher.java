@@ -138,7 +138,7 @@ public class NetworkDispatcher extends Thread {
             } catch (VolleyError volleyError) {
                 volleyError.setNetworkTimeMs(SystemClock.elapsedRealtime() - startTimeMs);
                 parseAndDeliverNetworkError(request, volleyError);
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 VolleyLog.e(e, "Unhandled exception %s", e.toString());
                 VolleyError volleyError = new VolleyError(e);
                 volleyError.setNetworkTimeMs(SystemClock.elapsedRealtime() - startTimeMs);
